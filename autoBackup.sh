@@ -9,7 +9,7 @@ read -p "Enter the path to Destination Directory(e.g. /path/to/destination/dir):
 # Create a timestamp for the backup filename
 TIMESTAMP=$(date +%Y-%m-%d_%H%M%S)
 
-#Logging status
+#Log file
 LOG_FILE=$DEST_DIR/LOG_FILE
 
 # Create the backup archive
