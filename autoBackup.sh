@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Prompt to get Backup Path directory
-read -p "Enter the path of Backup Directory(e.g. /path/of/backup/dir: " BAK_DIR
+read -p "Enter the path of Backup Directory(e.g. /path/of/backup/dir): " BAK_DIR
 
 # Prompt to get Destination Path directory
-read -p "Enter the path to Destination Directory(e.g. /path/to/destination/dir: " DEST_DIR
+read -p "Enter the path to Destination Directory(e.g. /path/to/destination/dir): " DEST_DIR
 
 # Create a timestamp for the backup filename
 TIMESTAMP=$(date +%Y-%m-%d_%H%M%S)
