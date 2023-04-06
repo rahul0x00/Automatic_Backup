@@ -12,6 +12,7 @@ TIMESTAMP=$(date +%Y-%m-%d_%H%M%S)
 # Create Backup Directory if it doesn't exist
 if [ ! -d $DEST_DIR ];
 then
+	echo "Creating Directory"
 	mkdir -p "$DEST_DIR"
 fi
 
@@ -22,7 +23,8 @@ LOG_FILE=$DEST_DIR/LOG_FILE
 tar -czf $DEST_DIR/backup_$TIMESTAMP.tar.gz -C $SRC_DIR .
 
 # Copy the backup archive to the destination directory
-cp $DEST_DIR/backup_$TIMESTAMP.tar.gz $DEST_DIR/backup_latest.tar.gz 
+rsync -avz --link-dest=$DEST_DIR/backup_latest.tar.gz $DEST_DIR/backup_$TIMESTAMP.tar.gz $DEST_DIR/backup_latest.tar.gz || echo "$(date "+%Y-%m-%d %H:%M:%S"): Backup failed!" >> $DEST_DIR/LOG_FILE
+#cp $DEST_DIR/backup_$TIMESTAMP.tar.gz $DEST_DIR/backup_latest.tar.gz 
 
 # Log status of operation
 echo "$(date "+%Y-%m-%d %H:%M:%S"): Backup successful!" >> $LOG_FILE
