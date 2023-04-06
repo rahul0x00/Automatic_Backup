@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Prompt to get Backup Path directory
+# Prompt to get Source Path directory
 read -p "Enter the path of Backup Directory(e.g. /path/of/backup/dir): " SRC_DIR
 
 # Prompt to get Destination Path directory
